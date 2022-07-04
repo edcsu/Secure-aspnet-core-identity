@@ -13,8 +13,14 @@ builder.Services.AddDefaultIdentity<RazorPagesPizzaUser>(options => options.Sign
 
 builder.Services.AddTransient<IEventService, AuditEventService>();
 
+builder.Services.AddAuthorization(options =>
+    options.AddPolicy("Admin", policy =>
+        policy.RequireAuthenticatedUser()
+            .RequireClaim("IsAdmin", bool.TrueString)));
+
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+    options.Conventions.AuthorizePage("/AdminsOnly", "Admin"));
 
 var app = builder.Build();
 
