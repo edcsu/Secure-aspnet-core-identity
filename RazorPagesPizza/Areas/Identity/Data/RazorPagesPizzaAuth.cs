@@ -11,7 +11,7 @@ public class RazorPagesPizzaAuth : IdentityDbContext<RazorPagesPizzaUser>
     {
     }
 
-    //public DbSet<UserAudit> UserAuditEvents { get; set; }
+    public DbSet<UserAudit> UserAuditEvents { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
