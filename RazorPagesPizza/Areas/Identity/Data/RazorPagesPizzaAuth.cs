@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesPizza.Areas.Identity.Data;
+using RazorPagesPizza.Models;
 
 namespace RazorPagesPizza.Areas.Identity.Data;
 
@@ -11,6 +10,8 @@ public class RazorPagesPizzaAuth : IdentityDbContext<RazorPagesPizzaUser>
         : base(options)
     {
     }
+
+    //public DbSet<UserAudit> UserAuditEvents { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
